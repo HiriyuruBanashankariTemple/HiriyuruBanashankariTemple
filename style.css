@@ -134,3 +134,75 @@
     max-width: 90%;
   }
 }
+
+/* Fix Instagram QR image size */
+.instagram-card {
+  width: min(100% - 32px, 1000px);
+  margin: 40px auto;
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.instagram-card img {
+  display: block;
+  width: 180px !important;
+  height: auto !important;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.instagram-qr-link {
+  display: block;
+  width: 180px;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.instagram-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.instagram-card h3 {
+  color: #792b20;
+}
+
+.instagram-follow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  margin-top: 10px;
+  border-radius: 30px;
+  background: #792b20;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.instagram-follow:hover {
+  background: #542017;
+}
+
+@media (max-width: 600px) {
+  .instagram-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .instagram-card img {
+    width: 160px !important;
+  }
+
+  .instagram-qr-link {
+    width: 160px;
+  }
+}
