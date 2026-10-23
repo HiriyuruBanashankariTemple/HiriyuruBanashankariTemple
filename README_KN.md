@@ -27,3 +27,12 @@
 4. ಹೊಸ `index.html`, `style.css`, `script.js`, `README_KN.md` ಫೈಲ್‌ಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.
 5. ಹಳೆಯ ಫೈಲ್‌ಗಳ ಹೆಸರೇ ಇರುವುದರಿಂದ GitHub ಅವುಗಳನ್ನು ಬದಲಾಯಿಸುತ್ತದೆ. `Commit changes` ಒತ್ತಿರಿ.
 6. ಕೆಲವು ನಿಮಿಷಗಳಲ್ಲಿ GitHub Pages ಜಾಲತಾಣದಲ್ಲಿ ಬದಲಾವಣೆ ಕಾಣಿಸುತ್ತದೆ.
+
+
+## ಹೊಸ ಲೋಗೋ, ಚಿತ್ರಗಳು ಮತ್ತು ವೀಡಿಯೊಗಳನ್ನು ಸೇರಿಸಲಾಗಿದೆ
+- `assets/images/temple-logo.png` — ದೇವಸ್ಥಾನದ ವೃತ್ತಾಕಾರದ ಲೋಗೋ
+- `assets/images/` — ಈಗ ಸೇರಿಸಿರುವ 7 ದೇವಸ್ಥಾನದ ಚಿತ್ರಗಳು
+- `assets/videos/` — ಈಗ ಸೇರಿಸಿರುವ 3 MP4 ವೀಡಿಯೊಗಳು
+
+### GitHub ಗೆ ಅಪ್‌ಲೋಡ್ ಮಾಡುವಾಗ
+ZIP ಅನ್ನು extract ಮಾಡಿ, ಅದರೊಳಗಿನ `index.html`, `style.css`, `script.js`, `README_KN.md` ಮತ್ತು `assets` ಫೋಲ್ಡರ್ ಅನ್ನು repository ಯ root ನಲ್ಲಿ upload ಮಾಡಿ. ಹಳೆಯ ಫೈಲ್‌ಗಳನ್ನು replace ಮಾಡಿ, ಎಲ್ಲಾ ಹೊಸ ಫೈಲ್‌ಗಳನ್ನು commit ಮಾಡಿ. ವೀಡಿಯೊಗಳ ಕಾರಣ ZIP ದೊಡ್ಡದಾಗಿದೆ; GitHub ನಲ್ಲಿ `assets/videos` ಸಹಿತ ಎಲ್ಲಾ ಫೈಲ್‌ಗಳು upload ಆಗಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.
