@@ -122,54 +122,69 @@
 </html>
 
 
-/* Fix: align goddess image with hero heading */
+/* Refined desktop hero alignment */
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.9fr 1.1fr;
   align-items: center;
-  position: relative;
+  gap: 55px;
   min-height: 650px;
-  padding: 60px 7%;
-  overflow: hidden;
-}
-
-.hero-content {
-  grid-column: 2;
-  grid-row: 1;
-  align-self: center;
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 650px;
-  margin: 0 auto;
+  padding: 55px 7% 75px;
 }
 
 .hero-image-wrap {
   grid-column: 1;
   grid-row: 1;
-  align-self: center;
-  justify-self: center;
-  position: relative;
   width: 100%;
-  max-width: 420px;
-  margin: 0;
+  max-width: 430px;
+  min-height: 0;
+  justify-self: center;
+  align-self: center;
+  display: grid;
+  place-items: center;
+}
+
+.ornamental-ring {
+  width: 88%;
+  max-width: 370px;
+  aspect-ratio: 1;
 }
 
 .hero-deity-photo {
   display: block;
+  width: 78%;
+  max-width: 310px;
+  height: 440px;
+  object-fit: cover;
+  object-position: center top;
+  border: 5px double #a66b22;
+  border-radius: 48% 48% 16px 16px;
   position: relative;
-  width: 100%;
-  height: auto;
-  max-height: 500px;
-  object-fit: contain;
   margin: 0 auto;
+}
+
+.hero-content {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  align-self: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 3.3vw, 3.1rem);
+  line-height: 1.5;
 }
 
 @media (max-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 50px 6% 70px;
+    gap: 25px;
+    padding: 40px 6% 70px;
+    text-align: center;
   }
 
   .hero-content {
@@ -181,8 +196,18 @@
   .hero-image-wrap {
     grid-column: 1;
     grid-row: 2;
-    width: 85%;
+    width: 100%;
     max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .hero-deity-photo {
+    width: 78%;
+    height: 370px;
+    max-width: 270px;
+  }
+
+  .ornamental-ring {
+    width: 90%;
   }
 }
-
