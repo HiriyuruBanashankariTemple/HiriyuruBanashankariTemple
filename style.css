@@ -120,3 +120,69 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
+/* Fix: align goddess image with hero heading */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  position: relative;
+  min-height: 650px;
+  padding: 60px 7%;
+  overflow: hidden;
+}
+
+.hero-content {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.hero-image-wrap {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0;
+}
+
+.hero-deity-photo {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 50px 6% 70px;
+  }
+
+  .hero-content {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: center;
+  }
+
+  .hero-image-wrap {
+    grid-column: 1;
+    grid-row: 2;
+    width: 85%;
+    max-width: 340px;
+  }
+}
+
