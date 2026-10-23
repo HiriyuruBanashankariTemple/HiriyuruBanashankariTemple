@@ -477,3 +477,142 @@
   }
 }
 
+/* Instagram card alignment fix */
+.instagram-gallery-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 32px;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #ead9b3;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.instagram-gallery-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  min-width: 0;
+}
+
+.instagram-icon {
+  display: block;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  color: #8b3024;
+}
+
+.instagram-icon svg {
+  display: block;
+  width: 42px;
+  height: 42px;
+}
+
+.instagram-gallery-info > div {
+  min-width: 0;
+}
+
+.instagram-gallery-info h3 {
+  overflow-wrap: anywhere;
+  color: #792b20;
+  font-size: 1.15rem;
+  margin: 8px 0 12px;
+}
+
+.instagram-gallery-info p {
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.instagram-eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  color: #8b3024;
+  font-weight: 700;
+}
+
+.instagram-follow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 30px;
+  background: #8b3024;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.instagram-follow-btn:hover {
+  background: #692319;
+}
+
+.instagram-qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+.instagram-qr-wrap img {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.instagram-qr-wrap span {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #792b20;
+}
+
+@media (max-width: 700px) {
+  .instagram-gallery-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+    margin: 28px auto;
+    padding: 22px;
+  }
+
+  .instagram-gallery-info {
+    gap: 12px;
+  }
+
+  .instagram-icon,
+  .instagram-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .instagram-icon {
+    flex-basis: 32px;
+  }
+
+  .instagram-gallery-info h3 {
+    font-size: 1rem;
+  }
+
+  .instagram-qr-wrap {
+    max-width: 220px;
+  }
+
+  .instagram-qr-wrap img {
+    max-width: 180px;
+  }
+}
+
