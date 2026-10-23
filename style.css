@@ -611,6 +611,38 @@
     max-width: 220px;
   }
 
+  
+/* Make the Goddess photo a clean oval */
+.hero-deity-photo {
+  display: block;
+  width: 340px;
+  height: 470px;
+  max-width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50% !important;
+  border: 4px solid #b88635;
+  box-shadow: 0 12px 30px rgba(92, 48, 15, 0.2);
+}
+
+/* Keep the photo properly centered */
+.hero-image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Adjust the oval on mobile screens */
+@media (max-width: 600px) {
+  .hero-deity-photo {
+    width: 260px;
+    height: 360px;
+  }
+}
+
+
   .instagram-qr-wrap img {
     max-width: 180px;
   }
