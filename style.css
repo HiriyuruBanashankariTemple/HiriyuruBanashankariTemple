@@ -206,3 +206,80 @@
     width: 160px;
   }
 }
+
+/* Instagram section - layout fix */
+.instagram-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+/* QR code container */
+.instagram-qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* Prevent the QR image from becoming oversized */
+.instagram-qr-wrap img {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* Follow button */
+.instagram-follow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 12px 20px;
+  border-radius: 30px;
+  background: #8b3024;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.instagram-follow-btn:hover {
+  background: #692319;
+}
+
+/* Instagram text */
+.instagram-eyebrow {
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+  .instagram-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .instagram-qr-wrap {
+    max-width: 240px;
+  }
+
+  .instagram-qr-wrap img {
+    max-width: 220px;
+  }
+}
+
