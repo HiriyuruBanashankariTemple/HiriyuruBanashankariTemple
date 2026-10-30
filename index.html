@@ -308,10 +308,22 @@
             <input id="donationAmount" name="amount" type="number" min="1" max="1000000" step="1" required placeholder="ಮೊತ್ತ ನಮೂದಿಸಿ" data-placeholder-kn="ಮೊತ್ತ ನಮೂದಿಸಿ" data-placeholder-en="Enter amount">
 
             <label class="donation-consent">
-              <input type="checkbox" name="whatsappConsent" value="yes" required>
+              <input type="checkbox" name="whatsappConsent" value="yes">
               <span data-kn="ನನ್ನ ದೇಣಿಗೆ ರಸೀದಿಯನ್ನು ಈ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಗೆ WhatsApp ಮೂಲಕ ಕಳುಹಿಸಲು ನಾನು ಒಪ್ಪುತ್ತೇನೆ." data-en="I agree to receive my donation receipt on this mobile number through WhatsApp.">ನನ್ನ ದೇಣಿಗೆ ರಸೀದಿಯನ್ನು ಈ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಗೆ WhatsApp ಮೂಲಕ ಕಳುಹಿಸಲು ನಾನು ಒಪ್ಪುತ್ತೇನೆ.</span>
             </label>
-            <button type="submit" class="btn btn-primary donation-pay-btn id="donationPayBtn" data-kn="ದೇಣಿಗೆ ಪಾವತಿಸಿ ↗" data-en="Donate Now ↗">ದೇಣಿಗೆ ಪಾವತಿಸಿ ↗</button>
+            <label class="donation-consent">
+              <input type="checkbox" name="publicName" value="yes">
+              <span data-kn="ನನ್ನ ಹೆಸರನ್ನು ದಾನಿಗಳ ಪಟ್ಟಿಯಲ್ಲಿ ಸಾರ್ವಜನಿಕವಾಗಿ ಪ್ರದರ್ಶಿಸಲು ನಾನು ಒಪ್ಪುತ್ತೇನೆ. (ಐಚ್ಛಿಕ)" data-en="I consent to displaying my name publicly in the donor list. (Optional)">ನನ್ನ ಹೆಸರನ್ನು ದಾನಿಗಳ ಪಟ್ಟಿಯಲ್ಲಿ ಸಾರ್ವಜನಿಕವಾಗಿ ಪ್ರದರ್ಶಿಸಲು ನಾನು ಒಪ್ಪುತ್ತೇನೆ. (ಐಚ್ಛಿಕ)</span>
+            </label>
+            <button type="submit" class="btn btn-primary donation-pay-btn" id="donationPayBtn" data-kn="ದೇಣಿಗೆ ಪಾವತಿಸಿ ↗" data-en="Donate Now ↗">ದೇಣಿಗೆ ಪಾವತಿಸಿ ↗</button>
+            <div class="donation-success" id="donationSuccess" hidden aria-live="polite">
+              <div class="success-flower">✿</div>
+              <h3 data-kn="ಧನ್ಯವಾದಗಳು!" data-en="Thank you!">ಧನ್ಯವಾದಗಳು!</h3>
+              <p data-kn="ಶ್ರೀ ಬನಶಂಕರಿ ಅಮ್ಮನವರ ಕೃಪೆ ಸದಾ ಇರಲಿ." data-en="May the grace of Shri Banashankari Amma always be with you.">ಶ್ರೀ ಬನಶಂಕರಿ ಅಮ್ಮನವರ ಕೃಪೆ ಸದಾ ಇರಲಿ.</p>
+              <p class="sanskrit-blessing">श्रीबनशङ्करीमातुः कृपा सदा अस्तु</p>
+              <p id="receiptNumber" class="receipt-number"></p>
+              <a id="downloadReceipt" class="btn btn-outline" href="#" hidden data-kn="PDF ರಸೀದಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ" data-en="Download PDF Receipt">PDF ರಸೀದಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ</a>
+            </div>
             <p class="donation-status" id="donationStatus" role="status" aria-live="polite" data-kn="ಪಾವತಿ ಪೂರ್ಣಗೊಳಿಸಿದ ನಂತರ ನಿಮ್ಮ ಪಾವತಿ ದೃಢೀಕರಣದ ಆಧಾರದ ಮೇಲೆ ರಸೀದಿ ನೀಡಲಾಗುತ್ತದೆ." data-en="A receipt will be issued based on confirmed payment status after the payment is completed.">ಪಾವತಿ ಪೂರ್ಣಗೊಳಿಸಿದ ನಂತರ ನಿಮ್ಮ ಪಾವತಿ ದೃಢೀಕರಣದ ಆಧಾರದ ಮೇಲೆ ರಸೀದಿ ನೀಡಲಾಗುತ್ತದೆ.</p>
           </form>
         </div>
@@ -326,6 +338,14 @@
           <a class="btn btn-outline donation-upi-link" id="upiPayLink" href="upi://pay?pa=hiriyurtempl%40indianbk&amp;pn=HIRIYUR%20SRI%20BANASHANKARI%20TEMPLE%20TRUST&amp;cu=INR" data-kn="UPI ಆಪ್ ಮೂಲಕ ಪಾವತಿಸಿ ↗" data-en="Pay using UPI app ↗">UPI ಆಪ್ ಮೂಲಕ ಪಾವತಿಸಿ ↗</a>
           <small data-kn="QR ಸ್ಕ್ಯಾನ್ ಮಾಡುವಾಗ ಅಥವಾ UPI ಪಾವತಿ ಮಾಡುವಾಗ ಫಲಾನುಭವಿಯ ಹೆಸರನ್ನು ಪರಿಶೀಲಿಸಿ." data-en="Please check the beneficiary name before confirming the QR or UPI payment.">QR ಸ್ಕ್ಯಾನ್ ಮಾಡುವಾಗ ಅಥವಾ UPI ಪಾವತಿ ಮಾಡುವಾಗ ಫಲಾನುಭವಿಯ ಹೆಸರನ್ನು ಪರಿಶೀಲಿಸಿ.</small>
         </div>
+      </div>
+      <div class="donor-wall" id="donorWall">
+        <div class="donor-wall-heading">
+          <span class="eyebrow" data-kn="ಅಮ್ಮನವರ ಸೇವೆಯಲ್ಲಿ ಕೈಜೋಡಿಸಿದವರು" data-en="Devotees supporting the temple">ಅಮ್ಮನವರ ಸೇವೆಯಲ್ಲಿ ಕೈಜೋಡಿಸಿದವರು</span>
+          <h2 data-kn="ನಮ್ಮ ದಾನಿಗಳು" data-en="Our Donors">ನಮ್ಮ ದಾನಿಗಳು</h2>
+          <p data-kn="ತಮ್ಮ ಹೆಸರನ್ನು ಪ್ರಕಟಿಸಲು ಒಪ್ಪಿಗೆ ನೀಡಿದ ದಾನಿಗಳ ಪಟ್ಟಿ." data-en="A list of donors who have chosen to display their names.">ತಮ್ಮ ಹೆಸರನ್ನು ಪ್ರಕಟಿಸಲು ಒಪ್ಪಿಗೆ ನೀಡಿದ ದಾನಿಗಳ ಪಟ್ಟಿ.</p>
+        </div>
+        <div id="donorList" class="donor-list"><p data-kn="ದಾನಿಗಳ ವಿವರಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…" data-en="Loading donor names…">ದಾನಿಗಳ ವಿವರಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…</p></div>
       </div>
     </section>
 
@@ -358,7 +378,7 @@
 
   </footer>
   <script src="language.js"></script>
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
   <script src="donation-config.js"></script>
   <script src="donation.js"></script>
   <script src="script.js"></script>

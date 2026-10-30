@@ -32,6 +32,40 @@
   });
   updateUpiLink();
 
+
+  const params = new URLSearchParams(window.location.search);
+  const returnedOrderId = params.get("order_id");
+  const api = API_BASE.replace(/\/$/, "");
+  const success = document.getElementById("donationSuccess");
+  const receiptNo = document.getElementById("receiptNumber");
+  const download = document.getElementById("downloadReceipt");
+  const lang = () => document.documentElement.lang === "en" ? "en" : "kn";
+  async function refreshDonors() {
+    if (!API_BASE) return;
+    const target = document.getElementById("donorList");
+    try {
+      const r = await fetch(`${api}/api/donors`); const data = await r.json();
+      target.replaceChildren();
+      if (!data.donors?.length) { const p=document.createElement("p"); p.className="donor-empty"; p.textContent=lang()==="en"?"Be the first to contribute and choose to display your name.":"ನಿಮ್ಮ ಹೆಸರನ್ನು ಪ್ರಕಟಿಸಲು ಒಪ್ಪಿಗೆ ನೀಡಿ ಮೊದಲ ಕಾಣಿಕೆ ಸಲ್ಲಿಸಿ."; target.append(p); return; }
+      data.donors.forEach(d => { const item=document.createElement("div"); item.className="donor-entry"; const name=document.createElement("strong"); name.textContent=d.name; const amount=document.createElement("span"); amount.textContent=new Intl.NumberFormat("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0}).format(d.amount); item.append(name,amount); target.append(item); });
+    } catch (_) { target.textContent=lang()==="en"?"Donor list is temporarily unavailable.":"ದಾನಿಗಳ ಪಟ್ಟಿ ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ."; }
+  }
+  async function checkReceipt(orderId) {
+    for (let attempt=0; attempt<8; attempt++) {
+      const r=await fetch(`${api}/api/receipt?order_id=${encodeURIComponent(orderId)}`);
+      if (r.ok) { const data=await r.json(); success.hidden=false; receiptNo.textContent=(lang()==="en"?"Receipt No.: ":"ರಸೀದಿ ಸಂಖ್ಯೆ: ")+data.receiptNo; download.href=data.url; download.hidden=false; status.textContent=lang()==="en"?"Your payment is verified. Your receipt is ready.":"ನಿಮ್ಮ ಪಾವತಿ ದೃಢಪಟ್ಟಿದೆ. ರಸೀದಿ ಸಿದ್ಧವಾಗಿದೆ."; refreshDonors(); return true; }
+      await new Promise(resolve=>setTimeout(resolve,2500));
+    }
+    status.textContent=lang()==="en"?"Payment return received. Verification is still processing; please refresh shortly.":"ಪಾವತಿ ಮಾಹಿತಿ ಸ್ವೀಕರಿಸಲಾಗಿದೆ. ದೃಢೀಕರಣ ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿದೆ; ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ.";
+    return false;
+  }
+  if (returnedOrderId && API_BASE) {
+    status.textContent=lang()==="en"?"Checking payment securely…":"ಪಾವತಿಯನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ…";
+    fetch(`${api}/api/verify-payment`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({orderId:returnedOrderId}) })
+      .then(r=>r.json()).then(result=> result.verified ? checkReceipt(returnedOrderId) : (status.textContent=result.message || "Payment status is being checked."))
+      .catch(()=>{ status.textContent=lang()==="en"?"Payment status is being checked. Please refresh shortly.":"ಪಾವತಿ ಸ್ಥಿತಿಯನ್ನು ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ."; });
+  }
+  refreshDonors();
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!form.reportValidity()) return;
@@ -40,7 +74,8 @@
       name: form.elements.name.value.trim(),
       phone: form.elements.phone.value.trim(),
       amount: Math.round(Number(form.elements.amount.value) * 100) / 100,
-      whatsappConsent: Boolean(form.elements.whatsappConsent.checked)
+      whatsappConsent: Boolean(form.elements.whatsappConsent.checked),
+      publicName: Boolean(form.elements.publicName.checked)
     };
     if (!donor.amount || donor.amount <= 0) return;
 
@@ -64,34 +99,12 @@
       const order = await response.json();
       if (!response.ok) throw new Error(order.error || "Could not create payment order.");
 
-      const checkout = new Razorpay({
-        key: order.key,
-        amount: order.amount,
-        currency: "INR",
-        name: PAYEE,
-        description: "Temple Donation",
-        order_id: order.orderId,
-        prefill: { name: donor.name, contact: donor.phone },
-        notes: { donationId: order.donationId },
-        theme: { color: "#792b20" },
-        handler: async (result) => {
-          const verified = await fetch(`${API_BASE.replace(/\/$/, "")}/api/verify-payment`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ ...result, donationId: order.donationId })
-          });
-          const verification = await verified.json();
-          status.textContent = verification.message || (document.documentElement.lang === "en"
-            ? "Payment submitted. Your receipt will be sent after confirmation."
-            : "ಪಾವತಿ ಸಲ್ಲಿಸಲಾಗಿದೆ. ದೃಢೀಕರಣದ ನಂತರ ರಸೀದಿ ಕಳುಹಿಸಲಾಗುತ್ತದೆ.");
-        },
-        modal: { ondismiss: () => { payButton.disabled = false; } }
-      });
-      checkout.on("payment.failed", (failure) => {
-        status.textContent = failure.error?.description || "Payment failed. Please try again.";
-        payButton.disabled = false;
-      });
-      checkout.open();
+      const cashfree = await Cashfree({ mode: order.environment });
+      const result = await cashfree.checkout({ paymentSessionId: order.paymentSessionId, redirectTarget: "_self" });
+      if (result?.error) throw new Error(result.error.message || "Payment could not be completed.");
+      status.textContent = document.documentElement.lang === "en"
+        ? "Payment initiated. Please wait while we confirm it and issue your receipt."
+        : "ಪಾವತಿ ಪ್ರಕ್ರಿಯೆ ಆರಂಭವಾಗಿದೆ. ದೃಢೀಕರಣದ ನಂತರ ರಸೀದಿ ಕಳುಹಿಸಲಾಗುತ್ತದೆ.";
     } catch (error) {
       status.textContent = error.message || "Payment could not be started.";
       payButton.disabled = false;

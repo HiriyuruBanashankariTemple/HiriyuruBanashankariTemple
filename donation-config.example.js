@@ -1,2 +1,2 @@
-// Copy this file to donation-config.js and replace the URL after deploying the Vercel backend.
-window.DONATION_API_BASE = "https://YOUR-VERCEL-PROJECT.vercel.app";
+// Copy to donation-config.js and set the deployed backend URL. This is public, not a secret.
+window.DONATION_API_BASE = "https://YOUR_VERCEL_API_DOMAIN";

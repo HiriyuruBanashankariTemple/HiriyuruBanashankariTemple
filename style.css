@@ -824,3 +824,8 @@
 .donation-consent { display:flex; align-items:flex-start; gap:10px; margin-top:9px; font-size:.84rem; line-height:1.55; font-weight:500 !important; }
 .donation-consent input { width:18px; min-width:18px; min-height:18px; height:18px; margin:3px 0 0; accent-color:var(--maroon, #792b20); }
 .donation-consent span { color:var(--muted, #776958); }
+
+
+/* Donation success and public donor wall */
+.donation-success{margin-top:18px;padding:22px;border:1px solid #d9bd78;border-radius:18px;background:#fff8e8;text-align:center}
+.donation-success[hidden]{display:none}.success-flower{font-size:2rem;color:#b88635}.donation-success h3{margin:6px 0;color:#792b20}.donation-success p{margin:6px 0}.sanskrit-blessing{font-weight:800;color:#9a6a22}.receipt-number{font-weight:800;letter-spacing:.04em;color:#792b20}.donor-wall{margin-top:42px;padding:clamp(20px,3vw,34px);border:1px solid var(--line,#ead9b3);border-radius:22px;background:#fffefa}.donor-wall-heading{text-align:center}.donor-wall-heading h2{color:var(--maroon,#792b20);margin:8px 0}.donor-wall-heading p{color:var(--muted,#776958)}.donor-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:20px}.donor-entry{padding:14px 16px;border:1px solid var(--line,#ead9b3);border-radius:13px;background:#fff9eb;display:flex;justify-content:space-between;gap:12px;align-items:center}.donor-entry strong{color:var(--maroon,#792b20)}.donor-entry span{font-weight:800;color:#8b6a28;white-space:nowrap}.donor-empty{text-align:center;color:var(--muted,#776958);grid-column:1/-1}

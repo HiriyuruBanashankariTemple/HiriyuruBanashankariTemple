@@ -91,24 +91,24 @@ async function uploadWhatsAppMedia(pdf, filename) {
 module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).end();
   const raw = await readRaw(req);
-  const signature = req.headers["x-razorpay-signature"];
-  const expected = crypto.createHmac("sha256", process.env.RAZORPAY_WEBHOOK_SECRET).update(raw).digest("hex");
-  if (!signature || signature.length !== expected.length || !crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expected))) {
+  const signature = req.headers["x-webhook-signature"];
+  const timestamp = req.headers["x-webhook-timestamp"];
+  const expected = crypto.createHmac("sha256", process.env.CASHFREE_SECRET_KEY).update(String(timestamp || "") + raw.toString("utf8")).digest("base64");
+  if (!signature || !timestamp || signature.length !== expected.length || !crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expected))) {
     return res.status(400).send("Invalid webhook signature");
   }
 
   try {
     const event = JSON.parse(raw.toString("utf8"));
-    if (event.event !== "payment.captured") return res.status(200).json({ received: true, ignored: event.event });
+    const payment = event.data?.payment;
+    const order = event.data?.order;
+    if (payment?.payment_status !== "SUCCESS") return res.status(200).json({ received: true, ignored: payment?.payment_status || "non-success" });
+    if (!order?.order_id) return res.status(400).send("Missing order reference");
+    const orderId = order.order_id;
 
-    const payment = event.payload?.payment?.entity;
-    if (!payment || payment.status !== "captured" || payment.currency !== "INR") return res.status(400).send("Payment not captured");
-    const orderId = payment.order_id;
-    if (!orderId) return res.status(400).send("Missing order reference");
-
-    const { data: donation, error } = await supabase.from("donations").select("*").eq("razorpay_order_id", orderId).single();
+    const { data: donation, error } = await supabase.from("donations").select("*").eq("cashfree_order_id", orderId).single();
     if (error || !donation) throw new Error("Donation record not found");
-    if (Number(payment.amount) !== Number(donation.amount_paise) || payment.currency !== donation.currency) {
+    if (Math.round(Number(order.order_amount) * 100) !== Number(donation.amount_paise) || order.order_currency !== donation.currency) {
       return res.status(400).send("Payment amount/currency does not match donation record");
     }
 
@@ -121,24 +121,24 @@ module.exports = async (req, res) => {
       if (downloadError) throw downloadError;
       pdf = Buffer.from(await savedPdf.arrayBuffer());
     } else {
-      receiptNo = `BS-${new Date().getFullYear()}-${String(Date.now()).slice(-8)}`;
+      receiptNo = `BS-${new Date().getFullYear()}-${String(donation.id).replace(/-/g, "").slice(0, 10).toUpperCase()}`;
       filename = `${receiptNo}.pdf`;
-      pdf = await makeReceipt(donation, payment.id, receiptNo);
+      pdf = await makeReceipt(donation, String(payment.cf_payment_id), receiptNo);
       const { error: uploadError } = await supabase.storage.from("donation-receipts").upload(filename, pdf, {
         contentType: "application/pdf", upsert: true
       });
       if (uploadError) throw uploadError;
 
       const { error: updateError } = await supabase.from("donations").update({
-        status: "receipted", razorpay_payment_id: payment.id, receipt_no: receiptNo,
+        status: "receipted", cashfree_payment_id: String(payment.cf_payment_id), receipt_no: receiptNo,
         paid_at: new Date().toISOString()
-      }).eq("id", donationId);
+      }).eq("id", donation.id);
       if (updateError) throw updateError;
     }
 
     // Send PDF to the donor (with consent) and to each configured Karyakarta individually.
     // Add country code without '+' in the env list, e.g. 919876543210, comma-separated.
-    if (process.env.WHATSAPP_ACCESS_TOKEN && process.env.WHATSAPP_PHONE_NUMBER_ID) {
+    if (process.env.WHATSAPP_ACCESS_TOKEN && process.env.WHATSAPP_PHONE_NUMBER_ID && !donation.whatsapp_sent_at) {
       const mediaId = await uploadWhatsAppMedia(pdf, filename);
       const caption = `Donation receipt ${receiptNo} | INR ${(donation.amount_paise / 100).toFixed(2)} | Thank you.`;
       if (donation.whatsapp_consent) {
@@ -146,7 +146,7 @@ module.exports = async (req, res) => {
       }
       const admins = (process.env.KARYAKARTA_WHATSAPP_NUMBERS || "").split(",").map(x => x.trim()).filter(Boolean);
       for (const admin of admins) await sendWhatsAppDocument(admin, mediaId, filename, caption);
-      await supabase.from("donations").update({ whatsapp_sent_at: new Date().toISOString(), whatsapp_error: null }).eq("id", donationId);
+      await supabase.from("donations").update({ whatsapp_sent_at: new Date().toISOString(), whatsapp_error: null }).eq("id", donation.id);
     }
 
     return res.status(200).json({ received: true, receiptNo });
