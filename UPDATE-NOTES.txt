@@ -1,7 +1,15 @@
-2027 Jaatre website update
-- Updated the 'ಮುಂದಿನ ಧಾರ್ಮಿಕ ಕಾರ್ಯಕ್ರಮ' feature card to the 2027 annual Shri Banashankari Amma Jatre.
-- Date shown: Saturday, 20 February 2027, corresponding to Magha Shuddha Purnima (Bharata Hunnime) per the 2027 Bengaluru Purnima calendar.
-- Kannada and English copy included.
-- Exact puja timings and programme sequence are intentionally left for Trust confirmation; the 2026 pamphlet was used as a format/reference, not copied as an unconfirmed 2027 schedule.
-- Includes the latest temple-history corrections and generic bilingual data-kn/data-en language switch handler.
-Replace index.html, style.css and language.js in the GitHub Pages repository.
+Maha Mangalarati Song website update
+
+Included:
+- Added a bilingual Kannada/English navigation link for the Maha Mangalarati Song section.
+- Embedded the complete 3-page original song PDF directly in the page so visitors can read it on the website without OCR/transcription changes.
+- Added a download button immediately below the embedded song. The button downloads the full PDF.
+- Included the original PDF asset: banashankari-maha-mangalarati-song.pdf
+
+GitHub Pages instructions:
+1. Extract this ZIP.
+2. Upload/replace index.html, style.css and language.js in the repository root.
+3. Upload banashankari-maha-mangalarati-song.pdf to the same repository root (same folder as index.html).
+4. Commit the changes and wait for GitHub Pages to publish.
+
+The live website is not changed automatically by this package.
