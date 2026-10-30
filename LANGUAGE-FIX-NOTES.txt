@@ -1,0 +1,6 @@
+Language switch fix
+- The temple history HTML already had Kannada/English data attributes, but language.js did not apply them.
+- Updated language.js to translate every element carrying data-kn and data-en when the visitor switches languages.
+- Existing translation dictionary and page layout are retained.
+- Replace index.html, style.css and language.js in the GitHub Pages repository.
+- Hard-refresh the website after publishing (Ctrl+F5 or clear the mobile browser cache) to load the updated script.
