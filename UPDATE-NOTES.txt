@@ -1,10 +1,5 @@
-HIRIYURU SHRI BANASHANKARI TEMPLE WEBSITE UPDATE
-
-This package includes:
-- Updated three Jaatre programme cards for 19, 20 and 21 February 2027.
-- Kannada and English text using the existing language switch.
-- Maha Mangalarati Song section and original complete 3-page PDF with download link.
-
-The three-day programme descriptions and timings are adapted from the 2026 Jaatre pamphlet, with dates moved to 19-21 February 2027 as approved by the user. Please have the Temple Trust verify the 2027 timings before publishing if the programme has changed.
-
-To publish: replace the corresponding files in the root of the GitHub Pages repository and commit the changes.
+Maha Mangalarati text-layout update
+- Replaced embedded PDF viewer with four readable Kannada lyric sections.
+- Original PDF remains in the site root and is linked only through the download button.
+- Preserves bilingual heading/description using the existing language.js.
+- Based on text read from the supplied PDF. Please have a Kannada reader/Trust member proofread a few OCR-unclear words before publishing.
