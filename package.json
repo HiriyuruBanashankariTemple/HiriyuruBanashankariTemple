@@ -1,0 +1,13 @@
+{
+  "name": "banashankari-temple-donations",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "pdfkit": "^0.16.0",
+    "razorpay": "^2.9.6"
+  }
+}

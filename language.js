@@ -176,6 +176,23 @@
     ".committee-card:nth-child(3) h3": { kn: "ಟಿ.ಜಿ. ಶಿವಶಂಕರ್", en: "T.G. Shivashankar" },
     ".committee-card:nth-child(4) .committee-role": { kn: "ಖಜಾಂಚಿ", en: "Treasurer" },
     ".committee-card:nth-child(4) h3": { kn: "ಬೆಳ್ಳುಳ್ಳಿ ಎಂ. ದೇವರಾಜು", en: "Bellulli M. Devaraju" },
+
+    "#donate .section-heading .eyebrow": { kn: "ಅಮ್ಮನವರ ಸೇವೆಗೆ ನಿಮ್ಮ ಕಾಣಿಕೆ", en: "Support the Temple" },
+    "#donate .section-heading h2": { kn: "ದೇವಸ್ಥಾನಕ್ಕೆ ದೇಣಿಗೆ", en: "Make a Temple Donation" },
+    "#donate .section-heading p": { kn: "ನಿಮ್ಮ ಕಾಣಿಕೆಯು ದೇವಸ್ಥಾನದ ಪೂಜೆಗಳು, ಧಾರ್ಮಿಕ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಸೇವಾ ಚಟುವಟಿಕೆಗಳಿಗೆ ಸಹಕಾರಿಯಾಗುತ್ತದೆ.", en: "Your contribution supports temple poojas, religious events and community service activities." },
+    ".donation-trust-name": { kn: "ಹಿರಿಯೂರು ಶ್ರೀ ಬನಶಂಕರಿ ದೇವಸ್ಥಾನದ ಟ್ರಸ್ಟ್ (ರಿ.)", en: "Hiriyuru Shri Banashankari Temple Trust (Regd.)" },
+    ".donation-copy h3": { kn: "ಭಕ್ತಿಯಿಂದ ಸಲ್ಲಿಸುವ ಪ್ರತಿಯೊಂದು ಕಾಣಿಕೆಯೂ ಅಮೂಲ್ಯ", en: "Every offering made with devotion matters" },
+    ".donation-copy > p": { kn: "ಕೆಳಗಿನ Indian Bank QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಅಥವಾ UPI ಮೂಲಕ ಕಾಣಿಕೆ ಸಲ್ಲಿಸಿ. ಪಾವತಿ ಮಾಡುವ ಮೊದಲು ಫಲಾನುಭವಿಯ ಹೆಸರು ಪರಿಶೀಲಿಸಿ.", en: "Scan the Indian Bank QR code below or pay using UPI. Please verify the beneficiary name before making payment." },
+    "label[for='donorName']": { kn: "ದಾನಿಗಳ ಹೆಸರು", en: "Donor name" },
+    "label[for='donorPhone']": { kn: "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ", en: "Mobile number" },
+    "label[for='donationAmount']": { kn: "ದೇಣಿಗೆ ಮೊತ್ತ (₹)", en: "Donation amount (₹)" },
+    "#donationPayBtn": { kn: "ದೇಣಿಗೆ ಪಾವತಿಸಿ ↗", en: "Donate Now ↗" },
+    "#donationStatus": { kn: "ಪಾವತಿ ಪೂರ್ಣಗೊಳಿಸಿದ ನಂತರ ನಿಮ್ಮ ಪಾವತಿ ದೃಢೀಕರಣದ ಆಧಾರದ ಮೇಲೆ ರಸೀದಿ ನೀಡಲಾಗುತ್ತದೆ.", en: "A receipt will be issued based on confirmed payment status after the payment is completed." },
+    "#upiPayLink": { kn: "UPI ಆಪ್ ಮೂಲಕ ಪಾವತಿಸಿ ↗", en: "Pay using UPI app ↗" },
+    ".donation-bank-details span:last-child": { kn: "ಫಲಾನುಭವಿ: HIRIYUR SRI BANASHANKARI TEMPLE TRUST", en: "Beneficiary: HIRIYUR SRI BANASHANKARI TEMPLE TRUST" },
+    ".donation-consent span": { kn: "ನನ್ನ ದೇಣಿಗೆ ರಸೀದಿಯನ್ನು ಈ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಗೆ WhatsApp ಮೂಲಕ ಕಳುಹಿಸಲು ನಾನು ಒಪ್ಪುತ್ತೇನೆ.", en: "I agree to receive my donation receipt on this mobile number through WhatsApp." },
+    ".donation-qr-card > small": { kn: "QR ಸ್ಕ್ಯಾನ್ ಮಾಡುವಾಗ ಅಥವಾ UPI ಪಾವತಿ ಮಾಡುವಾಗ ಫಲಾನುಭವಿಯ ಹೆಸರನ್ನು ಪರಿಶೀಲಿಸಿ.", en: "Please check the beneficiary name before confirming the QR or UPI payment." },
+    ".nav a[href='#donate']": { kn: "ದೇಣಿಗೆ", en: "Donate" }
   };
 
   function setLanguage(language) {
@@ -190,6 +207,11 @@
         value = value.replace("{year}", year);
       }
       element.innerHTML = value;
+    });
+
+
+    document.querySelectorAll("[data-placeholder-kn][data-placeholder-en]").forEach((input) => {
+      input.placeholder = lang === "en" ? input.dataset.placeholderEn : input.dataset.placeholderKn;
     });
 
     document.documentElement.lang = lang;

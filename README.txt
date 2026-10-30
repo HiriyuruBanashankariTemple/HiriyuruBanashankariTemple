@@ -1,0 +1,1 @@
+See README-DONATIONS.md for setup. Never publish API secrets in GitHub Pages.
