@@ -163,7 +163,19 @@
     ".footer-top > p": { kn: "ಭಕ್ತಿ • ಸಂಸ್ಕೃತಿ • ಸೇವೆ", en: "Devotion • Culture • Service" },
     ".footer-bottom span:first-child": { kn: "© <span id=\"year\">{year}</span> ಹಿರಿಯೂರು ಶ್ರೀ ಬನಶಂಕರಿ ದೇವಸ್ಥಾನದ ಟ್ರಸ್ಟ್ (ರಿ.)", en: "© <span id=\"year\">{year}</span> Hiriyuru Shri Banashankari Temple Trust (Regd.)" },
     ".footer-bottom a": { kn: "ಮೇಲಕ್ಕೆ ↑", en: "Back to Top ↑" },
-    ".footer-instagram": { kn: "@hiriyurubanashankariamma · Follow", en: "@hiriyurubanashankariamma · Follow" }
+    ".footer-instagram": { kn: "@hiriyurubanashankariamma · Follow", en: "@hiriyurubanashankariamma · Follow" },
+
+    ".committee-section .section-heading .eyebrow": { kn: "ನಮ್ಮ ಆಡಳಿತ ಮಂಡಳಿ", en: "Our Management Committee" },
+    ".committee-section .section-heading h2": { kn: "ದೇವಸ್ಥಾನದ ಆಡಳಿತ ಮಂಡಳಿ", en: "Temple Management Committee" },
+    ".committee-section .section-heading p": { kn: "ಹಿರಿಯೂರು ಶ್ರೀ ಬನಶಂಕರಿ ದೇವಸ್ಥಾನದ ಟ್ರಸ್ಟ್‌ನ ಪದಾಧಿಕಾರಿಗಳು.", en: "Office bearers of Hiriyuru Shri Banashankari Temple Trust." },
+    ".committee-card:nth-child(1) .committee-role": { kn: "ಅಧ್ಯಕ್ಷರು", en: "President" },
+    ".committee-card:nth-child(1) h3": { kn: "ವಿ. ಧನರಾಜ್", en: "V. Dhanaraj" },
+    ".committee-card:nth-child(2) .committee-role": { kn: "ಉಪಾಧ್ಯಕ್ಷರು", en: "Vice President" },
+    ".committee-card:nth-child(2) h3": { kn: "ಆರ್. ಚಂದ್ರಶೇಖರ್", en: "R. Chandrashekhar" },
+    ".committee-card:nth-child(3) .committee-role": { kn: "ಕಾರ್ಯದರ್ಶಿ", en: "Secretary" },
+    ".committee-card:nth-child(3) h3": { kn: "ಟಿ.ಜಿ. ಶಿವಶಂಕರ", en: "T.G. Shivashankar" },
+    ".committee-card:nth-child(4) .committee-role": { kn: "ಖಜಾಂಚಿ", en: "Treasurer" },
+    ".committee-card:nth-child(4) h3": { kn: "ಬೆಳ್ಳಳ್ಳಿ ಎಂ. ದೇವರಾಜು", en: "Bellalli M. Devaraju" },
   };
 
   function setLanguage(language) {
