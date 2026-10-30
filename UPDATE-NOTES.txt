@@ -1,5 +1,7 @@
-Temple history wording corrections
-- Jatre is correctly described as taking place on Magha Shuddha Purnima (Bharata Hunnime), generally in February.
-- Removed Banada Hunnime references.
-- Removed Rahukala from the lemon-lamp heading and description; it is now simply 'ನಿಂಬೆಹಣ್ಣಿನ ದೀಪ' / 'Lemon Lamps'.
-- Kannada and English versions updated.
+2027 Jaatre website update
+- Updated the 'ಮುಂದಿನ ಧಾರ್ಮಿಕ ಕಾರ್ಯಕ್ರಮ' feature card to the 2027 annual Shri Banashankari Amma Jatre.
+- Date shown: Saturday, 20 February 2027, corresponding to Magha Shuddha Purnima (Bharata Hunnime) per the 2027 Bengaluru Purnima calendar.
+- Kannada and English copy included.
+- Exact puja timings and programme sequence are intentionally left for Trust confirmation; the 2026 pamphlet was used as a format/reference, not copied as an unconfirmed 2027 schedule.
+- Includes the latest temple-history corrections and generic bilingual data-kn/data-en language switch handler.
+Replace index.html, style.css and language.js in the GitHub Pages repository.
