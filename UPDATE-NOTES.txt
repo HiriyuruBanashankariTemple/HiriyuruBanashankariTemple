@@ -1,6 +1,5 @@
-Temple history corrections
-- Removed Shiva from the parivara deity description; Ganapati only.
-- Updated the Jatre to Magha Shuddha Purnima (Bharata Hunnime), celebrated in February.
-- Replaced the idol-installation story with the family's account: the idol was intended for Bengaluru, became immovable at Hiriyuru, and was consecrated there.
-- Added the Narada Maharishi Gotra family's continuing Bengaluru-to-Hiriyuru worship and Jatre tradition.
+Temple history wording corrections
+- Jatre is correctly described as taking place on Magha Shuddha Purnima (Bharata Hunnime), generally in February.
+- Removed Banada Hunnime references.
+- Removed Rahukala from the lemon-lamp heading and description; it is now simply 'ನಿಂಬೆಹಣ್ಣಿನ ದೀಪ' / 'Lemon Lamps'.
 - Kannada and English versions updated.
