@@ -173,9 +173,9 @@
     ".committee-card:nth-child(2) .committee-role": { kn: "ಉಪಾಧ್ಯಕ್ಷರು", en: "Vice President" },
     ".committee-card:nth-child(2) h3": { kn: "ಆರ್. ಚಂದ್ರಶೇಖರ್", en: "R. Chandrashekhar" },
     ".committee-card:nth-child(3) .committee-role": { kn: "ಕಾರ್ಯದರ್ಶಿ", en: "Secretary" },
-    ".committee-card:nth-child(3) h3": { kn: "ಟಿ.ಜಿ. ಶಿವಶಂಕರ", en: "T.G. Shivashankar" },
+    ".committee-card:nth-child(3) h3": { kn: "ಟಿ.ಜಿ. ಶಿವಶಂಕರ್", en: "T.G. Shivashankar" },
     ".committee-card:nth-child(4) .committee-role": { kn: "ಖಜಾಂಚಿ", en: "Treasurer" },
-    ".committee-card:nth-child(4) h3": { kn: "ಬೆಳ್ಳಳ್ಳಿ ಎಂ. ದೇವರಾಜು", en: "Bellalli M. Devaraju" },
+    ".committee-card:nth-child(4) h3": { kn: "ಬೆಳ್ಳುಳ್ಳಿ ಎಂ. ದೇವರಾಜು", en: "Bellulli M. Devaraju" },
   };
 
   function setLanguage(language) {
