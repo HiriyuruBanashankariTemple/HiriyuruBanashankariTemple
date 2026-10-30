@@ -829,3 +829,22 @@
 /* Donation success and public donor wall */
 .donation-success{margin-top:18px;padding:22px;border:1px solid #d9bd78;border-radius:18px;background:#fff8e8;text-align:center}
 .donation-success[hidden]{display:none}.success-flower{font-size:2rem;color:#b88635}.donation-success h3{margin:6px 0;color:#792b20}.donation-success p{margin:6px 0}.sanskrit-blessing{font-weight:800;color:#9a6a22}.receipt-number{font-weight:800;letter-spacing:.04em;color:#792b20}.donor-wall{margin-top:42px;padding:clamp(20px,3vw,34px);border:1px solid var(--line,#ead9b3);border-radius:22px;background:#fffefa}.donor-wall-heading{text-align:center}.donor-wall-heading h2{color:var(--maroon,#792b20);margin:8px 0}.donor-wall-heading p{color:var(--muted,#776958)}.donor-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:20px}.donor-entry{padding:14px 16px;border:1px solid var(--line,#ead9b3);border-radius:13px;background:#fff9eb;display:flex;justify-content:space-between;gap:12px;align-items:center}.donor-entry strong{color:var(--maroon,#792b20)}.donor-entry span{font-weight:800;color:#8b6a28;white-space:nowrap}.donor-empty{text-align:center;color:var(--muted,#776958);grid-column:1/-1}
+
+
+/* Temple history section */
+.temple-history{background:linear-gradient(180deg,#fffaf0 0%,#fff 100%)}
+.history-intro{max-width:920px;margin:0 auto 28px;padding:25px 30px;border:1px solid rgba(139,48,39,.16);border-left:4px solid #8b3027;border-radius:18px;background:#fff;box-shadow:0 12px 35px rgba(85,48,22,.06)}
+.history-mark{display:inline-block;margin-bottom:10px;color:#9a6427;font-weight:800}
+.history-intro p{margin:0;color:#51392e;font-size:1.04rem;line-height:1.95}
+.history-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:stretch;max-width:1160px;margin:0 auto}
+.history-card{position:relative;padding:27px;overflow:hidden;border:1px solid #eadfc9;border-radius:20px;background:#fff;box-shadow:0 12px 34px rgba(85,48,22,.055)}
+.history-card-wide{grid-column:1/-1}
+.history-number{display:inline-flex;width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:12px;border-radius:50%;color:#fff;background:#8b3027;font-size:.85rem;font-weight:800}
+.history-card h3{margin:0 0 12px;color:#7b241c;font-size:1.22rem;line-height:1.65}
+.history-card p,.history-list li{color:#665448;font-size:.94rem;line-height:1.95}
+.history-card p{margin:0 0 12px}
+.history-list{display:grid;gap:12px;margin:0;padding-left:21px}
+.history-list li::marker{color:#b77a32}
+.history-list strong{color:#493127}
+.history-note{max-width:920px;margin:22px auto 0;color:#88796b;font-size:.82rem;line-height:1.8;text-align:center}
+@media(max-width:760px){.history-grid{grid-template-columns:1fr}.history-card-wide{grid-column:auto}.history-card,.history-intro{padding:20px}.history-intro p,.history-card p,.history-list li{font-size:.9rem}}
