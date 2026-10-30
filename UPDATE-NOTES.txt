@@ -1,15 +1,10 @@
-Maha Mangalarati Song website update
+HIRIYURU SHRI BANASHANKARI TEMPLE WEBSITE UPDATE
 
-Included:
-- Added a bilingual Kannada/English navigation link for the Maha Mangalarati Song section.
-- Embedded the complete 3-page original song PDF directly in the page so visitors can read it on the website without OCR/transcription changes.
-- Added a download button immediately below the embedded song. The button downloads the full PDF.
-- Included the original PDF asset: banashankari-maha-mangalarati-song.pdf
+This package includes:
+- Updated three Jaatre programme cards for 19, 20 and 21 February 2027.
+- Kannada and English text using the existing language switch.
+- Maha Mangalarati Song section and original complete 3-page PDF with download link.
 
-GitHub Pages instructions:
-1. Extract this ZIP.
-2. Upload/replace index.html, style.css and language.js in the repository root.
-3. Upload banashankari-maha-mangalarati-song.pdf to the same repository root (same folder as index.html).
-4. Commit the changes and wait for GitHub Pages to publish.
+The three-day programme descriptions and timings are adapted from the 2026 Jaatre pamphlet, with dates moved to 19-21 February 2027 as approved by the user. Please have the Temple Trust verify the 2027 timings before publishing if the programme has changed.
 
-The live website is not changed automatically by this package.
+To publish: replace the corresponding files in the root of the GitHub Pages repository and commit the changes.
