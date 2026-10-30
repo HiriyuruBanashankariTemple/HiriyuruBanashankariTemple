@@ -1,5 +1,11 @@
-Maha Mangalarati text-layout update
-- Replaced embedded PDF viewer with four readable Kannada lyric sections.
-- Original PDF remains in the site root and is linked only through the download button.
-- Preserves bilingual heading/description using the existing language.js.
-- Based on text read from the supplied PDF. Please have a Kannada reader/Trust member proofread a few OCR-unclear words before publishing.
+BANASHANKARI TEMPLE WEBSITE UPDATE
+Jaatre main-event highlights
+
+Updated the three Jaatre cards using the green-highlighted main events from the supplied 2026 pamphlet, adapted to the agreed 2027 dates:
+- 19 February 2027: Shri Banashankari Kalyanotsava (6:30 PM)
+- 20 February 2027: Ashtarathotsava (11:00–11:45 AM) and Godhoolikotsava (6:30 PM)
+- 21 February 2027: Panchamruta Abhisheka and Panchamrutotsava (7:00 PM)
+
+The section remains bilingual and the Maha Mangalarati song text/download section is retained.
+Please have the Trust confirm the 2027 programme timings and event spellings before publishing.
+Replace index.html, style.css, language.js and the PDF in the repository root with the files in this ZIP.
